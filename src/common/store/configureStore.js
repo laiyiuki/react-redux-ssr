@@ -1,12 +1,18 @@
-import { createStore, applyMiddleware } from 'redux';
+import { applyMiddleware, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from '../reducers';
 
-const configureStore = preloadedState => {
+const middlewares = [thunk];
+
+const configureStore = (initialState = {}) => {
   const store = createStore(
     rootReducer,
-    preloadedState,
-    applyMiddleware(thunk)
+    initialState,
+    compose(
+      applyMiddleware(...middlewares),
+      window.__REDUX_DEVTOOLS_EXTENSION__ &&
+        window.__REDUX_DEVTOOLS_EXTENSION__()
+    )
   );
 
   if (module.hot) {
