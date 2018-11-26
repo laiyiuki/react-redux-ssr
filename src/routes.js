@@ -1,4 +1,5 @@
-import CourseAds from './common/components/CourseAds';
+// import CourseAds from './common/components/CourseAds';
+import CourseAds from './common/pages/CourseAds';
 
 const routes = [
   {

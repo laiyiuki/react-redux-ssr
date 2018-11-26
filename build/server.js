@@ -23,7 +23,7 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "9881d341b2ba381ac5e6";
+/******/ 	var hotCurrentHash = "48e6b2247e9321174b1e";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -942,7 +942,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_router_config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-config */ "react-router-config");
 /* harmony import */ var react_router_config__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_router_config__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = '/Users/thomaslai/dev/manhldgs/react-redux-ssr/src/common/App.js';
+var _jsxFileName = '/Users/thomas/dev/man-holdings/react-redux-ssr/src/common/App.js';
 
 
 
@@ -1006,7 +1006,7 @@ var _this = undefined;
 
 
 
-var FETCH_COURSE_ADS = 'FETCH_COURSE_ADS';
+var FETCH_COURSE_ADS = 'fetch_course_ads';
 
 var fetchCourseAds = function fetchCourseAds(q) {
   return function () {
@@ -1054,10 +1054,10 @@ var fetchCourseAds = function fetchCourseAds(q) {
 
 /***/ }),
 
-/***/ "./src/common/components/CourseAds.js":
-/*!********************************************!*\
-  !*** ./src/common/components/CourseAds.js ***!
-  \********************************************/
+/***/ "./src/common/pages/CourseAds/index.js":
+/*!*********************************************!*\
+  !*** ./src/common/pages/CourseAds/index.js ***!
+  \*********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1077,13 +1077,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-redux */ "react-redux");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../actions */ "./src/common/actions/index.js");
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../actions */ "./src/common/actions/index.js");
 
 
 
 
 
-var _jsxFileName = '/Users/thomaslai/dev/manhldgs/react-redux-ssr/src/common/components/CourseAds.js';
+var _jsxFileName = '/Users/thomas/dev/man-holdings/react-redux-ssr/src/common/pages/CourseAds/index.js';
 
 
 
@@ -1362,15 +1362,16 @@ var port = "3000" || false;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _common_components_CourseAds__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./common/components/CourseAds */ "./src/common/components/CourseAds.js");
+/* harmony import */ var _common_pages_CourseAds__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./common/pages/CourseAds */ "./src/common/pages/CourseAds/index.js");
+// import CourseAds from './common/components/CourseAds';
 
 
 var routes = [{
   name: 'CourseAds',
   path: '/course-ads',
-  component: _common_components_CourseAds__WEBPACK_IMPORTED_MODULE_0__["default"],
+  component: _common_pages_CourseAds__WEBPACK_IMPORTED_MODULE_0__["default"],
   exact: true,
-  loadData: _common_components_CourseAds__WEBPACK_IMPORTED_MODULE_0__["default"].loadData
+  loadData: _common_pages_CourseAds__WEBPACK_IMPORTED_MODULE_0__["default"].loadData
 }];
 
 /* harmony default export */ __webpack_exports__["default"] = (routes);
@@ -1418,7 +1419,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = '/Users/thomaslai/dev/manhldgs/react-redux-ssr/src/server/index.js',
+var _jsxFileName = '/Users/thomas/dev/man-holdings/react-redux-ssr/src/server/index.js',
     _this = undefined;
 
 
@@ -1442,7 +1443,7 @@ var server = express__WEBPACK_IMPORTED_MODULE_8___default()();
 
 server
 // .disable('x-powered-by')
-.use(helmet__WEBPACK_IMPORTED_MODULE_9___default()()).use(express__WEBPACK_IMPORTED_MODULE_8___default.a.static("/Users/thomaslai/dev/manhldgs/react-redux-ssr/public")).get('/course-ads', function () {
+.use(helmet__WEBPACK_IMPORTED_MODULE_9___default()()).use(express__WEBPACK_IMPORTED_MODULE_8___default.a.static("/Users/thomas/dev/man-holdings/react-redux-ssr/public")).get('/course-ads', function () {
   var _ref = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(req, res) {
     var store, promises, finalState, staticContext, markup;
     return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
@@ -1453,7 +1454,7 @@ server
             store = Object(_common_store_configureStore__WEBPACK_IMPORTED_MODULE_14__["default"])();
             promises = Object(react_router_config__WEBPACK_IMPORTED_MODULE_7__["matchRoutes"])(_routes__WEBPACK_IMPORTED_MODULE_13__["default"], req.url).map(function (_ref2) {
               var route = _ref2.route;
-              return route.loadData ? route.loadData : null;
+              return route.loadData ? route.loadData(store) : null;
             });
             _context.next = 5;
             return babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_1___default.a.all(promises);
@@ -1668,7 +1669,7 @@ server
 
 __webpack_require__(/*! razzle-dev-utils/prettyNodeErrors */"razzle-dev-utils/prettyNodeErrors");
 __webpack_require__(/*! webpack/hot/poll?300 */"./node_modules/webpack/hot/poll.js?300");
-module.exports = __webpack_require__(/*! /Users/thomaslai/dev/manhldgs/react-redux-ssr/src */"./src/index.js");
+module.exports = __webpack_require__(/*! /Users/thomas/dev/man-holdings/react-redux-ssr/src */"./src/index.js");
 
 
 /***/ }),

@@ -26,7 +26,7 @@ server
       const store = configureStore();
 
       const promises = matchRoutes(routes, req.url).map(({ route }) =>
-        route.loadData ? route.loadData : null
+        route.loadData ? route.loadData(store) : null
       );
 
       await Promise.all(promises);
