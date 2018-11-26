@@ -2,6 +2,7 @@ import React from 'react';
 import { hydrate } from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config';
 
 import routes from '../routes';
 import configureStore from '../common/store/configureStore';
@@ -12,7 +13,8 @@ const store = configureStore(window.__PRELOADED_STATE__);
 hydrate(
   <Provider store={store}>
     <BrowserRouter>
-      <App routes={routes} />
+      {renderRoutes(routes)}
+      {/* <App routes={routes} /> */}
     </BrowserRouter>
   </Provider>,
   document.getElementById('root')
@@ -23,7 +25,8 @@ if (module.hot) {
     hydrate(
       <Provider store={store}>
         <BrowserRouter>
-          <App routes={routes} />
+          {renderRoutes(routes)}
+          {/* <App routes={routes} /> */}
         </BrowserRouter>{' '}
       </Provider>,
       document.getElementById('root')

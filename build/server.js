@@ -23,7 +23,7 @@ module.exports =
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "049cebc00f40f61c1584";
+/******/ 	var hotCurrentHash = "9881d341b2ba381ac5e6";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -940,7 +940,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-config */ "react-router-config");
+/* harmony import */ var react_router_config__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_router_config__WEBPACK_IMPORTED_MODULE_2__);
 var _jsxFileName = '/Users/thomaslai/dev/manhldgs/react-redux-ssr/src/common/App.js';
+
 
 
 
@@ -951,7 +954,7 @@ var App = function App(_ref) {
     {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 5
+        lineNumber: 6
       }
     },
     routes.map(function (route, index) {
@@ -963,7 +966,7 @@ var App = function App(_ref) {
         component: route.component,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 7
+          lineNumber: 8
         }
       });
     })
@@ -1110,7 +1113,7 @@ var CourseAds = function (_Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 14
+            lineNumber: 16
           }
         },
         courseAds.map(function (courseAd) {
@@ -1119,7 +1122,7 @@ var CourseAds = function (_Component) {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 16
+                lineNumber: 18
               }
             },
             react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(
@@ -1127,7 +1130,7 @@ var CourseAds = function (_Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 17
+                  lineNumber: 19
                 }
               },
               courseAd._id
@@ -1137,7 +1140,7 @@ var CourseAds = function (_Component) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 18
+                  lineNumber: 20
                 }
               },
               courseAd.title
@@ -1151,6 +1154,10 @@ var CourseAds = function (_Component) {
   return CourseAds;
 }(react__WEBPACK_IMPORTED_MODULE_5__["Component"]);
 
+CourseAds.loadData = function (store) {
+  return store.dispatch(Object(_actions__WEBPACK_IMPORTED_MODULE_7__["fetchCourseAds"])());
+};
+
 var mapStateToProps = function mapStateToProps(state) {
   return {
     courseAds: state.courseAds
@@ -1158,38 +1165,6 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_6__["connect"])(mapStateToProps, { fetchCourseAds: _actions__WEBPACK_IMPORTED_MODULE_7__["fetchCourseAds"] })(CourseAds));
-
-/***/ }),
-
-/***/ "./src/common/reducers/counter.js":
-/*!****************************************!*\
-  !*** ./src/common/reducers/counter.js ***!
-  \****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions */ "./src/common/actions/index.js");
-
-
-var counter = function counter() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-  var action = arguments[1];
-
-  switch (action.type) {
-    case _actions__WEBPACK_IMPORTED_MODULE_0__["SET_COUNTER"]:
-      return action.payload;
-    case _actions__WEBPACK_IMPORTED_MODULE_0__["INCREMENT_COUNTER"]:
-      return state + 1;
-    case _actions__WEBPACK_IMPORTED_MODULE_0__["DECREMENT_COUNTER"]:
-      return state - 1;
-    default:
-      return state;
-  }
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (counter);
 
 /***/ }),
 
@@ -1236,16 +1211,13 @@ var courseAds = function courseAds() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "redux");
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _counter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./counter */ "./src/common/reducers/counter.js");
-/* harmony import */ var _course_ads__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./course-ads */ "./src/common/reducers/course-ads.js");
-
+/* harmony import */ var _course_ads__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./course-ads */ "./src/common/reducers/course-ads.js");
 
 
 
 
 var rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  counter: _counter__WEBPACK_IMPORTED_MODULE_1__["default"],
-  courseAds: _course_ads__WEBPACK_IMPORTED_MODULE_2__["default"]
+  courseAds: _course_ads__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
 
 /* harmony default export */ __webpack_exports__["default"] = (rootReducer);
@@ -1256,7 +1228,7 @@ var rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])(
 /*!**************************************!*\
   !*** ./src/common/services/index.js ***!
   \**************************************/
-/*! exports provided: CourseAdService */
+/*! exports provided: CourseAdService, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1277,40 +1249,18 @@ var socketio = _feathersjs_client__WEBPACK_IMPORTED_MODULE_1___default.a.socketi
 
 
 var socket = socket_io_client__WEBPACK_IMPORTED_MODULE_0___default()(HOST);
-var client = _feathersjs_client__WEBPACK_IMPORTED_MODULE_1___default()();
+var feathersClient = _feathersjs_client__WEBPACK_IMPORTED_MODULE_1___default()();
 
-client.configure(socketio(socket, { timeout: 15000 }));
-// client.configure(
+feathersClient.configure(socketio(socket, { timeout: 15000 }));
+// feathersClient.configure(
 //   authentication({
 //     storage: window.localStorage,
 //     storageKey: 'learnla',
 //   })
 // );
 
-// export const FeathersClient = client;
-
-// export const VersionService = client.service('versions');
-// export const TeacherService = client.service('teachers');
-// export const StudentService = client.service('students');
-// export const AdminService = client.service('admins');
-var CourseAdService = client.service('course-ads');
-// export const StudentAdService = client.service('student-ads');
-// export const MatchingService = client.service('matchings');
-// export const MatchingLogsService = client.service('matching-logs');
-// export const TicketsService = client.service('tickets');
-
-// export const AuthByJWT = async () => client.authenticate({
-//   strategy: 'jwt',
-//   accessToken: window.localStorage.learnla,
-//   platform: APP.platform,
-// });
-
-// export const AuthByPassword = async (phone, password) => client.authenticate({
-//   strategy: 'local',
-//   phone,
-//   password,
-//   platform: APP.platform,
-// });
+var CourseAdService = feathersClient.service('course-ads');
+/* harmony default export */ __webpack_exports__["default"] = (feathersClient);
 
 /***/ }),
 
@@ -1419,7 +1369,8 @@ var routes = [{
   name: 'CourseAds',
   path: '/course-ads',
   component: _common_components_CourseAds__WEBPACK_IMPORTED_MODULE_0__["default"],
-  exact: true
+  exact: true,
+  loadData: _common_components_CourseAds__WEBPACK_IMPORTED_MODULE_0__["default"].loadData
 }];
 
 /* harmony default export */ __webpack_exports__["default"] = (routes);
@@ -1437,28 +1388,33 @@ var routes = [{
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! babel-runtime/regenerator */ "babel-runtime/regenerator");
 /* harmony import */ var babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! babel-runtime/helpers/asyncToGenerator */ "babel-runtime/helpers/asyncToGenerator");
-/* harmony import */ var babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "react-redux");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-dom/server */ "react-dom/server");
-/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_dom_server__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! express */ "express");
-/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var serialize_javascript__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! serialize-javascript */ "serialize-javascript");
-/* harmony import */ var serialize_javascript__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(serialize_javascript__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var helmet__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! helmet */ "helmet");
-/* harmony import */ var helmet__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(helmet__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var qs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! qs */ "qs");
-/* harmony import */ var qs__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(qs__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _common_App__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../common/App */ "./src/common/App.js");
-/* harmony import */ var _common_store_configureStore__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../common/store/configureStore */ "./src/common/store/configureStore.js");
+/* harmony import */ var babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! babel-runtime/core-js/promise */ "babel-runtime/core-js/promise");
+/* harmony import */ var babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! babel-runtime/helpers/asyncToGenerator */ "babel-runtime/helpers/asyncToGenerator");
+/* harmony import */ var babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "react-redux");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "react-router-dom");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_router_dom__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-dom/server */ "react-dom/server");
+/* harmony import */ var react_dom_server__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_dom_server__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react_router_config__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-config */ "react-router-config");
+/* harmony import */ var react_router_config__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_router_config__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! express */ "express");
+/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var helmet__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! helmet */ "helmet");
+/* harmony import */ var helmet__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(helmet__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var serialize_javascript__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! serialize-javascript */ "serialize-javascript");
+/* harmony import */ var serialize_javascript__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(serialize_javascript__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _common_App__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../common/App */ "./src/common/App.js");
 /* harmony import */ var _common_services__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../common/services */ "./src/common/services/index.js");
 /* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../routes */ "./src/routes.js");
+/* harmony import */ var _common_store_configureStore__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../common/store/configureStore */ "./src/common/store/configureStore.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! redux */ "redux");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_15__);
+
 
 
 
@@ -1480,26 +1436,113 @@ var _jsxFileName = '/Users/thomaslai/dev/manhldgs/react-redux-ssr/src/server/ind
 
 
 
+
 var assets = __webpack_require__(/*! ./build/assets.json */ "./build/assets.json");
-var server = express__WEBPACK_IMPORTED_MODULE_6___default()();
+var server = express__WEBPACK_IMPORTED_MODULE_8___default()();
 
 server
 // .disable('x-powered-by')
-.use(helmet__WEBPACK_IMPORTED_MODULE_8___default()()).use(express__WEBPACK_IMPORTED_MODULE_6___default.a.static("/Users/thomaslai/dev/manhldgs/react-redux-ssr/public")).get('/*', function () {
-  var _ref = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(req, res) {
-    var _ref2, data, preloadedState, store, finalState, staticContext, markup;
-
+.use(helmet__WEBPACK_IMPORTED_MODULE_9___default()()).use(express__WEBPACK_IMPORTED_MODULE_8___default.a.static("/Users/thomaslai/dev/manhldgs/react-redux-ssr/public")).get('/course-ads', function () {
+  var _ref = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(req, res) {
+    var store, promises, finalState, staticContext, markup;
     return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
-            _context.next = 3;
+            store = Object(_common_store_configureStore__WEBPACK_IMPORTED_MODULE_14__["default"])();
+            promises = Object(react_router_config__WEBPACK_IMPORTED_MODULE_7__["matchRoutes"])(_routes__WEBPACK_IMPORTED_MODULE_13__["default"], req.url).map(function (_ref2) {
+              var route = _ref2.route;
+              return route.loadData ? route.loadData : null;
+            });
+            _context.next = 5;
+            return babel_runtime_core_js_promise__WEBPACK_IMPORTED_MODULE_1___default.a.all(promises);
+
+          case 5:
+            finalState = store.getState();
+            staticContext = {};
+            // Render the component to a string
+
+            markup = Object(react_dom_server__WEBPACK_IMPORTED_MODULE_6__["renderToString"])(react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(
+              react_redux__WEBPACK_IMPORTED_MODULE_4__["Provider"],
+              { store: store, __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 38
+                }
+              },
+              react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(
+                react_router_dom__WEBPACK_IMPORTED_MODULE_5__["StaticRouter"],
+                { location: req.url, context: staticContext, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 39
+                  }
+                },
+                react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_common_App__WEBPACK_IMPORTED_MODULE_11__["default"], { routes: _routes__WEBPACK_IMPORTED_MODULE_13__["default"], __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 40
+                  }
+                })
+              )
+            ));
+
+
+            res.send('\n        <!doctype html>\n        <html lang="">\n          <head>\n            <meta http-equiv="X-UA-Compatible" content="IE=edge" />\n            <meta charSet=\'utf-8\' />\n            <title>Razzle Redux Example</title>\n            <meta name="viewport" content="width=device-width, initial-scale=1">\n            ' + (assets.client.css ? '<link rel="stylesheet" href="' + assets.client.css + '">' : '') + '\n            ' + ( false ? undefined : '<script src="' + assets.client.js + '" defer crossorigin></script>') + '\n          </head>\n          <body>\n           <div id="root">' + markup + '</div>\n            <script>\n              window.__PRELOADED_STATE__ = ' + serialize_javascript__WEBPACK_IMPORTED_MODULE_10___default()(finalState) + '\n            </script>\n          </body>\n        </html>');
+            _context.next = 14;
+            break;
+
+          case 11:
+            _context.prev = 11;
+            _context.t0 = _context['catch'](0);
+
+            console.log('err', _context.t0);
+
+          case 14:
+          case 'end':
+            return _context.stop();
+        }
+      }
+    }, _callee, _this, [[0, 11]]);
+  }));
+
+  return function (_x, _x2) {
+    return _ref.apply(this, arguments);
+  };
+}()).get('/courses', function () {
+  var _ref3 = babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2___default()( /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(req, res) {
+    var _ref4, data, preloadedState, store, finalState, staticContext, markup;
+
+    return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.prev = 0;
+
+            // First we iterate through our top level routes
+            // looking for matches against the current url.
+            // const matches = routes.map((route, index) => {
+            //   const match = matchPath(req.url, route.path, route);
+            //   // We then look for static getInitialData function on each top level component
+            //   if (match) {
+            //     const obj = {
+            //       route,
+            //       match,
+            //       promise: route.component.getInitialData
+            //         ? route.component.getInitialData({ match, req, res })
+            //         : Promise.resolve(null),
+            //     };
+            //     return obj;
+            //   }
+            //   return null;
+            // });
+            console.log(req.path);
+            console.log(req.url);
+
+            _context2.next = 5;
             return _common_services__WEBPACK_IMPORTED_MODULE_12__["CourseAdService"].find();
 
-          case 3:
-            _ref2 = _context.sent;
-            data = _ref2.data;
+          case 5:
+            _ref4 = _context2.sent;
+            data = _ref4.data;
 
 
             // Compile an initial state
@@ -1507,58 +1550,58 @@ server
 
             // Create a new Redux store instance
 
-            store = Object(_common_store_configureStore__WEBPACK_IMPORTED_MODULE_11__["default"])(preloadedState);
+            store = Object(_common_store_configureStore__WEBPACK_IMPORTED_MODULE_14__["default"])(preloadedState);
             // Grab the initial state from our Redux store
 
             finalState = store.getState();
             staticContext = {};
             // Render the component to a string
 
-            markup = Object(react_dom_server__WEBPACK_IMPORTED_MODULE_5__["renderToString"])(react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(
-              react_redux__WEBPACK_IMPORTED_MODULE_3__["Provider"],
+            markup = Object(react_dom_server__WEBPACK_IMPORTED_MODULE_6__["renderToString"])(react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(
+              react_redux__WEBPACK_IMPORTED_MODULE_4__["Provider"],
               { store: store, __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 55
+                  lineNumber: 112
                 }
               },
-              react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(
-                react_router_dom__WEBPACK_IMPORTED_MODULE_4__["StaticRouter"],
+              react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(
+                react_router_dom__WEBPACK_IMPORTED_MODULE_5__["StaticRouter"],
                 { location: req.url, context: staticContext, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 56
+                    lineNumber: 113
                   }
                 },
-                react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_common_App__WEBPACK_IMPORTED_MODULE_10__["default"], { routes: _routes__WEBPACK_IMPORTED_MODULE_13__["default"], __source: {
+                react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_common_App__WEBPACK_IMPORTED_MODULE_11__["default"], { routes: _routes__WEBPACK_IMPORTED_MODULE_13__["default"], __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 57
+                    lineNumber: 114
                   }
                 })
               )
             ));
 
 
-            res.send('\n        <!doctype html>\n        <html lang="">\n          <head>\n            <meta http-equiv="X-UA-Compatible" content="IE=edge" />\n            <meta charSet=\'utf-8\' />\n            <title>Razzle Redux Example</title>\n            <meta name="viewport" content="width=device-width, initial-scale=1">\n            ' + (assets.client.css ? '<link rel="stylesheet" href="' + assets.client.css + '">' : '') + '\n            ' + ( false ? undefined : '<script src="' + assets.client.js + '" defer crossorigin></script>') + '\n          </head>\n          <body>\n           <div id="root">' + markup + '</div>\n            <script>\n              window.__PRELOADED_STATE__ = ' + serialize_javascript__WEBPACK_IMPORTED_MODULE_7___default()(finalState) + '\n            </script>\n          </body>\n        </html>');
+            res.send('\n        <!doctype html>\n        <html lang="">\n          <head>\n            <meta http-equiv="X-UA-Compatible" content="IE=edge" />\n            <meta charSet=\'utf-8\' />\n            <title>Razzle Redux Example</title>\n            <meta name="viewport" content="width=device-width, initial-scale=1">\n            ' + (assets.client.css ? '<link rel="stylesheet" href="' + assets.client.css + '">' : '') + '\n            ' + ( false ? undefined : '<script src="' + assets.client.js + '" defer crossorigin></script>') + '\n          </head>\n          <body>\n           <div id="root">' + markup + '</div>\n            <script>\n              window.__PRELOADED_STATE__ = ' + serialize_javascript__WEBPACK_IMPORTED_MODULE_10___default()(finalState) + '\n            </script>\n          </body>\n        </html>');
             // res.send({ data });
-            _context.next = 17;
+            _context2.next = 19;
             break;
 
-          case 13:
-            _context.prev = 13;
-            _context.t0 = _context['catch'](0);
+          case 15:
+            _context2.prev = 15;
+            _context2.t0 = _context2['catch'](0);
 
-            console.log('err', _context.t0);
+            console.log('err', _context2.t0);
             res.send(500);
 
-          case 17:
+          case 19:
           case 'end':
-            return _context.stop();
+            return _context2.stop();
         }
       }
-    }, _callee, _this, [[0, 13]]);
+    }, _callee2, _this, [[0, 15]]);
   }));
 
-  return function (_x, _x2) {
-    return _ref.apply(this, arguments);
+  return function (_x3, _x4) {
+    return _ref3.apply(this, arguments);
   };
 }());
 
@@ -1660,6 +1703,17 @@ module.exports = require("babel-runtime/core-js/object/assign");
 /***/ (function(module, exports) {
 
 module.exports = require("babel-runtime/core-js/object/get-prototype-of");
+
+/***/ }),
+
+/***/ "babel-runtime/core-js/promise":
+/*!************************************************!*\
+  !*** external "babel-runtime/core-js/promise" ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("babel-runtime/core-js/promise");
 
 /***/ }),
 
@@ -1773,17 +1827,6 @@ module.exports = require("helmet");
 
 /***/ }),
 
-/***/ "qs":
-/*!*********************!*\
-  !*** external "qs" ***!
-  \*********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("qs");
-
-/***/ }),
-
 /***/ "razzle-dev-utils/prettyNodeErrors":
 /*!****************************************************!*\
   !*** external "razzle-dev-utils/prettyNodeErrors" ***!
@@ -1825,6 +1868,17 @@ module.exports = require("react-dom/server");
 /***/ (function(module, exports) {
 
 module.exports = require("react-redux");
+
+/***/ }),
+
+/***/ "react-router-config":
+/*!**************************************!*\
+  !*** external "react-router-config" ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-router-config");
 
 /***/ }),
 

@@ -10,37 +10,15 @@ const HOST =
 const { socketio, authentication } = feathers;
 
 const socket = io(HOST);
-const client = feathers();
+const feathersClient = feathers();
 
-client.configure(socketio(socket, { timeout: 15000 }));
-// client.configure(
+feathersClient.configure(socketio(socket, { timeout: 15000 }));
+// feathersClient.configure(
 //   authentication({
 //     storage: window.localStorage,
 //     storageKey: 'learnla',
 //   })
 // );
 
-// export const FeathersClient = client;
-
-// export const VersionService = client.service('versions');
-// export const TeacherService = client.service('teachers');
-// export const StudentService = client.service('students');
-// export const AdminService = client.service('admins');
-export const CourseAdService = client.service('course-ads');
-// export const StudentAdService = client.service('student-ads');
-// export const MatchingService = client.service('matchings');
-// export const MatchingLogsService = client.service('matching-logs');
-// export const TicketsService = client.service('tickets');
-
-// export const AuthByJWT = async () => client.authenticate({
-//   strategy: 'jwt',
-//   accessToken: window.localStorage.learnla,
-//   platform: APP.platform,
-// });
-
-// export const AuthByPassword = async (phone, password) => client.authenticate({
-//   strategy: 'local',
-//   phone,
-//   password,
-//   platform: APP.platform,
-// });
+export const CourseAdService = feathersClient.service('course-ads');
+export default feathersClient;

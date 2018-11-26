@@ -6,6 +6,7 @@ const routes = [
     path: '/course-ads',
     component: CourseAds,
     exact: true,
+    loadData: CourseAds.loadData,
   },
 ];
 

@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { fetchCourseAds } from '../actions';
 
 class CourseAds extends Component {
+  static loadData = store => store.dispatch(fetchCourseAds());
+
   componentDidMount() {
     this.props.fetchCourseAds;
   }
