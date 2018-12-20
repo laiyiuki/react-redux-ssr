@@ -9,12 +9,6 @@ const configureStore = (initialState = {}) => {
     rootReducer,
     initialState,
     applyMiddleware(...middlewares)
-
-    // compose(
-    //   applyMiddleware(...middlewares),
-    //   window.__REDUX_DEVTOOLS_EXTENSION__ &&
-    //     window.__REDUX_DEVTOOLS_EXTENSION__()
-    // )
   );
 
   if (module.hot) {
@@ -29,3 +23,5 @@ const configureStore = (initialState = {}) => {
 };
 
 export default configureStore;
+
+I would like to ask about your wallet #113993V46511000, is it made by Calf leather or lambskin, or you have 2 model ?

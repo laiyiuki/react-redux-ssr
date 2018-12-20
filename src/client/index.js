@@ -8,7 +8,8 @@ import routes from '../routes';
 import configureStore from '../common/store/configureStore';
 import App from '../common/App';
 
-const store = configureStore(window.__PRELOADED_STATE__);
+import store from '../store';
+// const store = configureStore(window.__PRELOADED_STATE__);
 
 hydrate(
   <Provider store={store}>
